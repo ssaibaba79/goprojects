@@ -2,7 +2,16 @@ package store
 
 import "fmt"
 
-var storeDiscount = discount{10.0, 0.05}
+var storeDiscount discount
+
+func init() {
+	storeDiscount = discount{10.0, 0.05}
+	fmt.Println("init() default store discount set")
+}
+
+func init() {
+	fmt.Println("init() test")
+}
 
 type Product struct {
 	Name, Category string

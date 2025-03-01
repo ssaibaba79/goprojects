@@ -2,7 +2,11 @@ package main
 
 import (
 	"fmt"
+	_ "packages/data"
+	cfmt "packages/fmt"
 	"packages/store"
+
+	"github.com/fatih/color"
 )
 
 func main() {
@@ -17,6 +21,7 @@ func main() {
 	}
 
 	p = store.NewProduct("Sneaker", "Apparel", 99.0)
-	fmt.Println(p.Name, p.Category, p.Price())
+	fmt.Println(p.Name, p.Category, cfmt.ToCurrency(p.Price()))
 
+	color.Green("Name:" + p.Name)
 }
